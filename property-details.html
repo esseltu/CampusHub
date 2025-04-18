@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Details - StudentHostel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .property-details-container {
+            display: flex;
+            gap: 30px;
+            padding: 40px;
+        }
+        .property-gallery {
+            flex: 1;
+        }
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+        }
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .thumbnail:hover {
+            border-color: #ff385c;
+        }
+        .property-info {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .amenities span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .booking-section {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .booking-form input, 
+        .booking-form select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .booking-form button {
+            background: #ff385c;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .property-details-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html"><div class="logo">CampusHUB</div></a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search hostels">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="user-menu">
+            <button onclick="window.location.href='hostel-registration.html'">List your hostel</button>
+            <div class="user-avatar" id="userAvatar">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-user-circle" style="font-size: 28px;"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="property-details-container" id="propertyDetails">
+        <!-- Loaded via JavaScript -->
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>For Students</h4>
+                <ul>
+                    <li><a href="how-to-book.html">How to book</a></li>
+                    <li><a href="safety.html">Safety information</a></li>
+                    <li><a href="discounts.html">Semester discounts</a></li>
+                    <li><a href="shuttle.html">Campus shuttle info</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>For Hostel Owners</h4>
+                <ul>
+                    <li><a href="hostel-registration.html">List your property</a></li>
+                    <li><a href="protection.html">Host protection</a></li>
+                    <li><a href="pricing.html">Pricing guide</a></li>
+                    <li><a href="verification.html">Student verification</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="partnerships.html">University partnerships</a></li>
+                    <li><a href="cancellation.html">Cancellation policies</a></li>
+                    <li><a href="emergency.html">Emergency contacts</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about.html">About StudentHostel</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Central University</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div>© 2025 StudentHostel, Inc. Made by Kwesi Essel </div>
+            <div>
+                <a href="privacy.html">Privacy</a> · 
+                <a href="terms.html">Terms</a> · 
+                <a href="sitemap.html">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/property-details.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
