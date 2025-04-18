@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostel Details - StudentHostel</title>
+    <meta name="description" content="Find and book student hostels near Central University. Affordable accommodations with amenities like WiFi, gym, and meal options.">
+  <meta name="keywords" content="student hostel, Central University accommodation, affordable housing, campus housing">
+  
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  
+  <!-- Preloads -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="style.css" as="style">
+  
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CampusHUB",
+    "url": "https://yourdomain.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://yourdomain.com/search?q={search_term}",
+      "query-input": "required name=search_term"
+    }
+  }
+  </script>
+  
     <style>
         .property-details-container {
             display: flex;
@@ -90,19 +124,45 @@
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html"><div class="logo">CampusHUB</div></a>
-        <div class="search-bar">
-            <input type="text" placeholder="Search hostels">
-            <i class="fas fa-search"></i>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Cookie Consent -->
+  <div id="cookie-consent" class="cookie-banner">
+    <div class="cookie-content">
+      <p>We use cookies to enhance your experience. <a href="/privacy">Learn more</a></p>
+      <div class="cookie-buttons">
+        <button id="accept-cookies" class="cookie-btn accept">Accept</button>
+        <button id="decline-cookies" class="cookie-btn decline">Decline</button>
+      </div>
+    </div>
+  </div>
+  
+  <nav aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">campusHUB</span>
+      </a>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Search hostels near Central University..." id="search-input" list="hostel-suggestions">
+        <datalist id="hostel-suggestions"></datalist>
+        <button aria-label="Search" class="search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      
+      <div class="user-menu">
+        <div class="user-avatar" id="userAvatar" aria-haspopup="true" >
+          <i class="fas fa-user-circle"></i>
         </div>
-        <div class="user-menu">
-            <button onclick="window.location.href='hostel-registration.html'">List your hostel</button>
-            <div class="user-avatar" id="userAvatar">
-                <i class="fas fa-bars"></i>
-            </div>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="user-profile.html"><i class="fas fa-user"></i> Profile</a>
+          <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
     
     <div class="property-details-container" id="propertyDetails">
         <!-- Loaded via JavaScript -->

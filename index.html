@@ -1,121 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHostel - Central University Accommodations</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentHostel - Central University Accommodations</title>
+  <meta name="description" content="Find and book student hostels near Central University. Affordable accommodations with amenities like WiFi, gym, and meal options.">
+  <meta name="keywords" content="student hostel, Central University accommodation, affordable housing, campus housing">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  
+  <!-- Preloads -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="style.css" as="style">
+  
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CampusHUB",
+    "url": "https://yourdomain.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://yourdomain.com/search?q={search_term}",
+      "query-input": "required name=search_term"
+    }
+  }
+  </script>
 </head>
 <body>
-    <nav>
-        <div class="logo">CampusHUB</div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search hostels near Central University">
-            <i class="fas fa-search"></i>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Cookie Consent -->
+  <div id="cookie-consent" class="cookie-banner">
+    <div class="cookie-content">
+      <p>We use cookies to enhance your experience. <a href="/privacy">Learn more</a></p>
+      <div class="cookie-buttons">
+        <button id="accept-cookies" class="cookie-btn accept">Accept</button>
+        <button id="decline-cookies" class="cookie-btn decline">Decline</button>
+      </div>
+    </div>
+  </div>
+  
+  <nav aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">campusHUB</span>
+      </a>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Search hostels near Central University..." id="search-input" list="hostel-suggestions">
+        <datalist id="hostel-suggestions"></datalist>
+        <button aria-label="Search" class="search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      
+      <div class="user-menu">
+        <div class="user-avatar" id="userAvatar" aria-haspopup="true" >
+          <i class="fas fa-user-circle"></i>
         </div>
-        <div class="user-menu">
-            <button onclick="window.location.href='hostel-registration.html'">List your hostel</button>
-            <div class="user-avatar" id="userAvatar">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="user-dropdown" id="userDropdown">
-                <a href="user-profile.html"><i class="fas fa-user"></i> Profile</a>
-                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
-            </div>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="user-profile.html"><i class="fas fa-user"></i> Profile</a>
+          <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
-    </nav>
-    
-    <div class="filters">
-        <div class="filter-item active" data-filter="all">
+      </div>
+    </div>
+  </nav>
+  <!--
+   <div class="availability-banner">
+    <span class="live-dot"></span>
+    <span id="available-count">Loading...</span> hostels available near you
+  </div>
+  -->
+ 
+  
+  <main id="main-content">
+    <div class="filters-container">
+      <div class="filters-scroll">
+        <div class="filters">
+          <div class="filter-item active" data-filter="all">
             <i class="fas fa-home"></i>
             <span>All</span>
-        </div>
-        <div class="filter-item" data-filter="dormitory">
+          </div>
+          <div class="filter-item" data-filter="dormitory">
             <i class="fas fa-building"></i>
             <span>Dormitories</span>
-        </div>
-        <div class="filter-item" data-filter="male">
+          </div>
+          <div class="filter-item" data-filter="male">
             <i class="fas fa-male"></i>
             <span>Male Only</span>
-        </div>
-        <div class="filter-item" data-filter="female">
+          </div>
+          <div class="filter-item" data-filter="female">
             <i class="fas fa-female"></i>
             <span>Female Only</span>
-        </div>
-        <div class="filter-item" data-filter="meals">
+          </div>
+          <div class="filter-item" data-filter="meals">
             <i class="fas fa-utensils"></i>
             <span>Meals Included</span>
-        </div>
-        <div class="filter-item" data-filter="wifi">
+          </div>
+          <div class="filter-item" data-filter="wifi">
             <i class="fas fa-wifi"></i>
             <span>WiFi</span>
-        </div>
-        <div class="filter-item" data-filter="gym">
+          </div>
+          <div class="filter-item" data-filter="gym">
             <i class="fas fa-dumbbell"></i>
             <span>Gym Access</span>
-        </div>
-        <div class="filter-item" data-filter="shuttle">
+          </div>
+          <div class="filter-item" data-filter="shuttle">
             <i class="fas fa-bus"></i>
             <span>Shuttle Service</span>
+          </div>
         </div>
+      </div>
     </div>
     
-    <div class="listings" id="propertyListings">
+    <div class="quick-filters">
+      <button class="quick-filter-btn" data-filter="near-campus">
+        <i class="fas fa-map-marker-alt"></i> Near Campus
+      </button>
+      <button class="quick-filter-btn" data-filter="under-1000">
+        <i class="fas fa-wallet"></i> Under GH₵1000
+      </button>
+      <button class="quick-filter-btn" data-filter="best-rated">
+        <i class="fas fa-star"></i> Best Rated
+      </button>
+    </div>
+    
+    <div class="listings-container">
+      <div class="listings" id="propertyListings">
         <!-- Dynamically loaded via JavaScript -->
+        <div class="skeleton-loading">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+      </div>
     </div>
-    
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h4>For Students</h4>
-                <ul>
-                    <li><a href="how-to-book.html">How to book</a></li>
-                    <li><a href="safety.html">Safety information</a></li>
-                    <li><a href="discounts.html">Semester discounts</a></li>
-                    <li><a href="shuttle.html">Campus shuttle info</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>For Hostel Owners</h4>
-                <ul>
-                    <li><a href="hostel-registration.html">List your property</a></li>
-                    <li><a href="protection.html">Host protection</a></li>
-                    <li><a href="pricing.html">Pricing guide</a></li>
-                    <li><a href="verification.html">Student verification</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="help.html">Help Center</a></li>
-                    <li><a href="partnerships.html">University partnerships</a></li>
-                    <li><a href="cancellation.html">Cancellation policies</a></li>
-                    <li><a href="emergency.html">Emergency contacts</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>About</h4>
-                <ul>
-                    <li><a href="about.html">About StudentHostel</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact Central University</a></li>
-                </ul>
-            </div>
+  </main>
+  
+  <div class="trust-badges">
+    <div class="trust-badge">
+      <i class="fas fa-shield-alt"></i>
+      <span>Secure Payments</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fas fa-check-circle"></i>
+      <span>Verified Hostels</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fas fa-headset"></i>
+      <span>24/7 Support</span>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>For Students</h4>
+          <ul>
+            <li><a href="how-to-book.html">How to book</a></li>
+            <li><a href="safety.html">Safety information</a></li>
+            <li><a href="discounts.html">Semester discounts</a></li>
+            <li><a href="shuttle.html">Campus shuttle info</a></li>
+          </ul>
         </div>
+        <div class="footer-column">
+          <h4>For Hostel Owners</h4>
+          <ul>
+            <li><a href="hostel-registration.html">List your property</a></li>
+            <li><a href="protection.html">Host protection</a></li>
+            <li><a href="pricing.html">Pricing guide</a></li>
+            <li><a href="verification.html">Student verification</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="partnerships.html">University partnerships</a></li>
+            <li><a href="cancellation.html">Cancellation policies</a></li>
+            <li><a href="emergency.html">Emergency contacts</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about.html">About StudentHostel</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact Central University</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
         <div class="copyright">
-            <div>© 2025 StudentHostel, Inc. Made by Kwesi Essel Turkson</div>
-            <div>
-                <a href="privacy.html">Privacy</a> · 
-                <a href="terms.html">Terms</a> · 
-                <a href="sitemap.html">Sitemap</a>
-            </div>
+          <div>© 2025 StudentHostel, Inc. Made by Kwesi Essel Turkson</div>
+          <div class="legal-links">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="sitemap.html">Sitemap</a>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/auth.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  
+  <noscript>
+    <div class="noscript-warning">
+      <div class="noscript-content">
+        <h3>JavaScript is disabled</h3>
+        <p>For full functionality of this site, please enable JavaScript in your browser settings.</p>
+        <a href="https://www.enable-javascript.com/" target="_blank">How to enable JavaScript</a>
+      </div>
+    </div>
+  </noscript>
 </body>
 </html>
