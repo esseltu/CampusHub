@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
 });
 
-// Rest of your main.js code remains the same...
 function loadProperties(propertiesToLoad) {
     const listingsContainer = document.getElementById('propertyListings');
     listingsContainer.innerHTML = '';
@@ -110,7 +109,7 @@ function loadProperties(propertiesToLoad) {
                 <i class="far fa-heart heart-icon"></i>
             </div>
             <div class="property-info">
-                <h3>${property.name}</h3>
+                <h3>${property.name} <i class="fas fa-check-circle verified-badge"></i></h3>
                 <p class="university">${property.university}</p>
                 <p>${property.location}</p>
                 <p>${property.type}</p>
@@ -127,7 +126,6 @@ function loadProperties(propertiesToLoad) {
 }
 
 function setupEventListeners() {
-    // Heart icon click
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('heart-icon')) {
             e.stopPropagation();
@@ -137,7 +135,6 @@ function setupEventListeners() {
         }
     });
 
-    // Filter click
     document.querySelectorAll('.filter-item').forEach(item => {
         item.addEventListener('click', function() {
             document.querySelector('.filter-item.active').classList.remove('active');
@@ -146,7 +143,6 @@ function setupEventListeners() {
         });
     });
 
-    // Search functionality
     const searchButton = document.querySelector('.search-bar .fa-search');
     searchButton.addEventListener('click', performSearch);
     

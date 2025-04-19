@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get property ID from URL
     const urlParams = new URLSearchParams(window.location.search);
     const propertyId = parseInt(urlParams.get('id'));
     
-    // Sample property data (should match your main.js data)
     const properties = [
         {
             id: 1,
@@ -135,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // Find the property with matching ID
     const property = properties.find(p => p.id === propertyId);
     
     if (property) {
@@ -143,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setupGallery();
         setupBookingForm();
     } else {
-        // Property not found
         document.querySelector('.property-details-container').innerHTML = `
             <div class="error-message" style="grid-column: 1/-1; text-align: center; padding: 50px;">
                 <h2>Property not found</h2>
@@ -163,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function renderPropertyDetails(property) {
     const container = document.getElementById('propertyDetails');
     
-    // Format amenities with icons
     const amenitiesHTML = property.amenities.map(amenity => {
         const icon = getAmenityIcon(amenity);
         return `<span><i class="fas fa-${icon}"></i> ${formatAmenity(amenity)}</span>`;
@@ -180,7 +175,7 @@ function renderPropertyDetails(property) {
         </div>
         
         <div class="property-info">
-            <h1>${property.name}</h1>
+            <h1>${property.name} <i class="fas fa-check-circle verified-badge"></i></h1>
             <p class="university">${property.university}</p>
             <p>${property.location}</p>
             <p>${property.type}</p>

@@ -714,6 +714,33 @@
     color: var(--primary-blue);
     text-decoration: none;
   }
+
+  /* ===== Verified Badge Styles ===== */
+.verified-badge {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--primary-blue);
+  font-size: 0.9em;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.property-card h3 .verified-badge {
+  font-size: 0.8em;
+}
+
+.property-info h1 .verified-badge {
+  font-size: 1rem;
+}
+
+/* Adjust spacing for badges */
+.property-card h3,
+.property-info h1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
   
   /* ===== Responsive Design ===== */
   @media (max-width: 1024px) {
