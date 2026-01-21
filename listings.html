@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostels - CampusHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- New Airbnb-style Navbar -->
+  <nav class="navbar">
+      <div class="container nav-container">
+          <a href="index.html" class="logo">
+              <i class="fas fa-university"></i> CampusHub
+          </a>
+          
+          <!-- Compact Search Bar for Listings Page -->
+          <div class="search-box" style="max-width: 400px; padding: 4px 4px 4px 20px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); border: 1px solid #ddd;">
+             <input type="text" id="search-input" placeholder="Start your search" style="border:none; outline:none; width: 100%; background:transparent;">
+             <button class="search-btn-large" style="width: 32px; height: 32px; min-width: 32px;">
+                <i class="fas fa-search" style="font-size: 12px;"></i>
+             </button>
+          </div>
+
+          <div class="user-menu">
+              <a href="#" class="host-btn">List your hostel</a>
+              <div class="user-dropdown-btn">
+                  <i class="fas fa-bars"></i>
+                  <i class="fas fa-user-circle"></i>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+  <main class="container" style="margin-top: 20px;">
+    <!-- Filters -->
+    <div class="filters-container" style="margin-bottom: 24px; padding: 10px 0; border-bottom: 1px solid #eee;">
+      <div class="filters" style="display: flex; gap: 24px; overflow-x: auto; padding-bottom: 10px;">
+        <div class="filter-item active" data-filter="all" style="display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; min-width: 64px; opacity: 1;">
+          <i class="fas fa-home" style="font-size: 24px;"></i>
+          <span style="font-size: 12px; font-weight: 600;">All</span>
+        </div>
+        <div class="filter-item" data-filter="dormitory" style="display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; min-width: 64px; opacity: 0.6;">
+          <i class="fas fa-building" style="font-size: 24px;"></i>
+          <span style="font-size: 12px; font-weight: 600;">Dormitories</span>
+        </div>
+        <div class="filter-item" data-filter="male" style="display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; min-width: 64px; opacity: 0.6;">
+          <i class="fas fa-male" style="font-size: 24px;"></i>
+          <span style="font-size: 12px; font-weight: 600;">Male Only</span>
+        </div>
+        <div class="filter-item" data-filter="female" style="display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; min-width: 64px; opacity: 0.6;">
+          <i class="fas fa-female" style="font-size: 24px;"></i>
+          <span style="font-size: 12px; font-weight: 600;">Female Only</span>
+        </div>
+        <div class="filter-item" data-filter="wifi" style="display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; min-width: 64px; opacity: 0.6;">
+          <i class="fas fa-wifi" style="font-size: 24px;"></i>
+          <span style="font-size: 12px; font-weight: 600;">WiFi</span>
+        </div>
+        <div class="filter-item" data-filter="gym" style="display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; min-width: 64px; opacity: 0.6;">
+          <i class="fas fa-dumbbell" style="font-size: 24px;"></i>
+          <span style="font-size: 12px; font-weight: 600;">Gym</span>
+        </div>
+        <div class="filter-item" data-filter="shuttle" style="display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; min-width: 64px; opacity: 0.6;">
+          <i class="fas fa-bus" style="font-size: 24px;"></i>
+          <span style="font-size: 12px; font-weight: 600;">Shuttle</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="listings-grid" id="propertyListings">
+      <!-- Dynamically loaded via JavaScript -->
+    </div>
+  </main>
+  
+  <footer class="main-footer">
+      <div class="container footer-content">
+          <div class="footer-col">
+              <h4>Support</h4>
+              <a href="#">Help Center</a>
+              <a href="#">Safety information</a>
+              <a href="#">Cancellation options</a>
+          </div>
+          <div class="footer-col">
+              <h4>Community</h4>
+              <a href="#">Central University SRC</a>
+              <a href="#">Student Forums</a>
+          </div>
+          <div class="footer-col">
+              <h4>Hosting</h4>
+              <a href="#">List your hostel</a>
+              <a href="#">Hostel requirements</a>
+          </div>
+          <div class="footer-col">
+              <h4>About</h4>
+              <a href="#">About CampusHub</a>
+              <a href="#">News</a>
+          </div>
+      </div>
+      <div class="container footer-bottom">
+          <p>&copy; 2024 CampusHub Central University. All rights reserved.</p>
+      </div>
+  </footer>
+
+  <script src="js/properties.js"></script>
+  <script src="js/main.js"></script>
+  
+  <!-- Add simple script to handle filter opacity toggling which isn't in main.js yet -->
+  <script>
+    document.querySelectorAll('.filter-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('.filter-item').forEach(i => {
+                i.classList.remove('active');
+                i.style.opacity = '0.6';
+            });
+            this.classList.add('active');
+            this.style.opacity = '1';
+        });
+    });
+  </script>
+</body>
+</html>

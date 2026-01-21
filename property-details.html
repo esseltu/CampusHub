@@ -3,221 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hostel Details - StudentHostel</title>
+    <title>Hostel Details - CampusHub</title>
     <meta name="description" content="Find and book student hostels near Central University. Affordable accommodations with amenities like WiFi, gym, and meal options.">
-  <meta name="keywords" content="student hostel, Central University accommodation, affordable housing, campus housing">
-  
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="keywords" content="student hostel, Central University accommodation, affordable housing, campus housing">
+    
+    <!-- Preloads -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="style.css" as="style">
+    
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     
     <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  
-  <!-- Preloads -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="style.css" as="style">
-  
-  <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "CampusHUB",
-    "url": "https://yourdomain.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://yourdomain.com/search?q={search_term}",
-      "query-input": "required name=search_term"
-    }
-  }
-  </script>
-  
+    <link rel="icon" href="favicon.ico" sizes="any">
+
     <style>
-        .property-details-container {
+        /* Property Details Specific Styles */
+        .property-details-page {
+            padding-top: 24px;
+        }
+
+        .property-header {
+            margin-bottom: 24px;
+        }
+
+        .property-header h1 {
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+        }
+
+        .property-meta {
             display: flex;
-            gap: 30px;
-            padding: 40px;
+            gap: 16px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            text-decoration: underline;
+            font-weight: 500;
         }
+
         .property-gallery {
-            flex: 1;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 8px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 48px;
+            height: 400px;
         }
+
         .main-image {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 15px;
         }
-        .thumbnail-container {
-            display: flex;
-            gap: 10px;
+
+        .gallery-grid {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px;
+            height: 100%;
         }
-        .thumbnail {
-            width: 80px;
-            height: 80px;
+
+        .gallery-item {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 2px solid transparent;
         }
-        .thumbnail:hover {
-            border-color: #ff385c;
+
+        .property-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 80px;
         }
-        .property-info {
-            flex: 1;
-            padding: 0 20px;
+
+        .details-column {
+            padding-right: 20px;
         }
-        .amenities {
+
+        .host-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 32px;
         }
-        .amenities span {
+
+        .host-details h2 {
+            font-size: 1.375rem;
+            margin-bottom: 4px;
+        }
+
+        .host-details p {
+            color: var(--text-secondary);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .feature-item i {
+            font-size: 24px;
+            color: var(--text-primary);
+            width: 24px;
+        }
+
+        .feature-text h3 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .feature-text p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .amenities-section {
+            padding: 32px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            margin: 32px 0;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .amenity-item {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 12px;
+            color: var(--text-primary);
         }
-        .booking-section {
-            background: #f7f7f7;
-            padding: 20px;
+
+        .booking-card {
+            position: sticky;
+            top: 100px;
+            border: 1px solid var(--border-light);
             border-radius: 12px;
-            margin-top: 30px;
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            background: white;
         }
+
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+        }
+
+        .booking-price {
+            font-size: 1.375rem;
+            font-weight: 700;
+        }
+
+        .booking-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .booking-rating {
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
         .booking-form {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 16px;
         }
-        .booking-form input, 
-        .booking-form select {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-        .booking-form button {
-            background: #ff385c;
+
+        .booking-btn {
+            background: var(--primary-color);
             color: white;
+            padding: 14px;
             border: none;
-            padding: 12px;
             border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
+            font-size: 1rem;
             font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
         }
+
+        .booking-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .no-charge {
+            text-align: center;
+            margin-top: 16px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
-            .property-details-container {
-                flex-direction: column;
-                padding: 20px;
+            .property-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .property-gallery {
+                height: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  <!-- Cookie Consent -->
-  <div id="cookie-consent" class="cookie-banner">
-    <div class="cookie-content">
-      <p>We use cookies to enhance your experience. <a href="/privacy">Learn more</a></p>
-      <div class="cookie-buttons">
-        <button id="accept-cookies" class="cookie-btn accept">Accept</button>
-        <button id="decline-cookies" class="cookie-btn decline">Decline</button>
-      </div>
-    </div>
-  </div>
-  
-  <nav aria-label="Main navigation">
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <span class="logo-text">campusHUB</span>
-      </a>
-      
-      <div class="search-bar">
-        <input type="text" placeholder="Search hostels near Central University..." id="search-input" list="hostel-suggestions">
-        <datalist id="hostel-suggestions"></datalist>
-        <button aria-label="Search" class="search-btn">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-      
-      <div class="user-menu">
-        <div class="user-avatar" id="userAvatar" aria-haspopup="true" >
-          <i class="fas fa-user-circle"></i>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-university"></i> CampusHub
+            </a>
+            <div class="nav-links">
+                <a href="listings.html">Hostels</a>
+                <a href="#">Experiences</a>
+                <a href="#">Online Experiences</a>
+            </div>
+            <div class="user-menu">
+                <a href="listings.html" class="host-btn">List your hostel</a>
+                <div class="user-dropdown-btn">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
         </div>
-        <div class="user-dropdown" id="userDropdown">
-          <a href="user-profile.html"><i class="fas fa-user"></i> Profile</a>
-          <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-          <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
     
-    <div class="property-details-container" id="propertyDetails">
+    <main class="container property-details-page" id="propertyDetails">
         <!-- Loaded via JavaScript -->
-    </div>
+    </main>
     
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h4>For Students</h4>
-                <ul>
-                    <li><a href="how-to-book.html">How to book</a></li>
-                    <li><a href="safety.html">Safety information</a></li>
-                    <li><a href="discounts.html">Semester discounts</a></li>
-                    <li><a href="shuttle.html">Campus shuttle info</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>For Hostel Owners</h4>
-                <ul>
-                    <li><a href="hostel-registration.html">List your property</a></li>
-                    <li><a href="protection.html">Host protection</a></li>
-                    <li><a href="pricing.html">Pricing guide</a></li>
-                    <li><a href="verification.html">Student verification</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-col">
                 <h4>Support</h4>
-                <ul>
-                    <li><a href="help.html">Help Center</a></li>
-                    <li><a href="partnerships.html">University partnerships</a></li>
-                    <li><a href="cancellation.html">Cancellation policies</a></li>
-                    <li><a href="emergency.html">Emergency contacts</a></li>
-                </ul>
+                <a href="#">Help Center</a>
+                <a href="#">Safety information</a>
+                <a href="#">Cancellation options</a>
             </div>
-            <div class="footer-column">
+            <div class="footer-col">
+                <h4>Community</h4>
+                <a href="#">Central University SRC</a>
+                <a href="#">Student Forums</a>
+            </div>
+            <div class="footer-col">
+                <h4>Hosting</h4>
+                <a href="#">List your hostel</a>
+                <a href="#">Hostel requirements</a>
+            </div>
+            <div class="footer-col">
                 <h4>About</h4>
-                <ul>
-                    <li><a href="about.html">About StudentHostel</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact Central University</a></li>
-                </ul>
+                <a href="#">About CampusHub</a>
+                <a href="#">News</a>
             </div>
         </div>
-        <div class="copyright">
-            <div>© 2025 StudentHostel, Inc. Made by Kwesi Essel </div>
-            <div>
-                <a href="privacy.html">Privacy</a> · 
-                <a href="terms.html">Terms</a> · 
-                <a href="sitemap.html">Sitemap</a>
-            </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2024 CampusHub Central University. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="js/properties.js"></script>
     <script src="js/property-details.js"></script>
-    <script src="js/auth.js"></script>
 </body>
 </html>
